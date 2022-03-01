@@ -10,6 +10,7 @@ const searchPhone = () => {
 }
 const displaySearchResult = data =>{
     const searchResult = document.getElementById('search-result');
+    searchResult.innerHTML = '';
     data.forEach(phone => {
         // console.log(phone);
         const div = document.createElement('div');
@@ -17,7 +18,7 @@ const displaySearchResult = data =>{
         div.innerHTML =
         `
         <div class="card h-100">
-        <img src= "${phone.image}" class="card-img-top" alt="...">
+        <img src= "${phone.image}" class="w-50 mx-auto card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">${phone.brand}</h5>
             <p class="card-text">${phone.phone_name}</p>
@@ -37,11 +38,12 @@ const loadPhoneDetail = phoneId =>{
 const showPhoneDetail = phone =>{
     console.log(phone);
     const phoneDetails = document.getElementById('phone-details');
+    phoneDetails.innerHTML = '';
     const div = document.createElement('div');
     div.classList.add("card");
     div.innerHTML = `
    
-  <img src="${phone.image}" class="card-img-top" alt="...">
+  <img src="${phone.image}" class=" w-50 mx-auto card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">${phone.brand}</h5>
     <h6 class="card-title">${phone.brand}</h6>
