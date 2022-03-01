@@ -10,7 +10,20 @@ const searchPhone = () => {
 }
 const displaySearchResult = data =>{
     const searchResult = document.getElementById('search-result');
+    const errorHnadle = document.getElementById('error-handle');
     searchResult.innerHTML = '';
+    errorHnadle.innerHTML = '';
+    
+    if(data.length == 0){
+        const h5 = document.createElement('h5');
+        h5.innerHTML = `
+        <h5 class=" text-center fw-bold fs-1">Please enter a valid keyword!!!</h5>
+        `;
+        errorHnadle.appendChild(h5);
+        
+    }
+  else{
+    
     data.forEach(phone => {
         // console.log(phone);
         const div = document.createElement('div');
@@ -28,6 +41,7 @@ const displaySearchResult = data =>{
         `;
         searchResult.appendChild(div)
     });
+  }
 }
 const loadPhoneDetail = phoneId =>{
     const url = `https://openapi.programming-hero.com/api/phone/${phoneId}`;
